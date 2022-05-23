@@ -36,7 +36,7 @@ export default function Correios() {
   };
 
   fetch(
-    "https://api.linketrack.com/track/json?user=teste&token=1abcd00b2731640e886fb41a8a9671ad1434c599dbaa0a0de9a5aa619f29a83f&codigo=OS445938500BR",
+    `https://api.linketrack.com/track/json?user=teste&token=1abcd00b2731640e886fb41a8a9671ad1434c599dbaa0a0de9a5aa619f29a83f&codigo=${setApi}`,
     requestOptions
   )
     .then((response) => response.json())
@@ -56,6 +56,7 @@ export default function Correios() {
             id="standard-basic"
             label="Codígo"
             variant="standard"
+            value={api}
             classes={{ root: classes.TextField }}
           />
         </Grid>
@@ -63,7 +64,8 @@ export default function Correios() {
           <Button
             variant="outlined"
             size="large"
-            color="primary"
+            color="primary"            
+          
             classes={{ root: classes.button }}
           >
             Rastear
