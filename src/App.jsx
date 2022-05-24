@@ -1,28 +1,14 @@
-import React from "react";
-import { Header } from "./Components/header";
-import { createTheme, CssBaseline, makeStyles } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core";
-import Correios from "./Components/Correios";
+import React from 'react'
+import { CssBaseline } from '@mui/material'
+import Rastreio from './Components/Mandaê/Rastreio'
+import Header from './Components/Header/Index'
 
-export default function app() {
-  const theme = createTheme({
-palette:{
-  primary:{
-    main:'#94d2bd',
-  
-  },
- 
-},
-
-  });
-
+export default function app () {
   return (
     <>
-      <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
-        <Correios/>
-      </ThemeProvider>
+        <Rastreio/>
     </>
-  );
+  )
 }
