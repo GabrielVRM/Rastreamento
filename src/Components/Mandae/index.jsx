@@ -15,21 +15,19 @@ export default function Mandae () {
   }
 
   const loadAll = async () => {
-    const config = {
-      method: 'get',
-      url: `https://api.mandae.com.br/v3/trackings/${code}`,
-      headers: {
-        authorization: '99aa0a3062e281c74879a367b4308534'
-      }
-    }
-
-    axios(config)
-      .then(function (response) {
-        setDados(response.data)
-      })
-      .catch(function (error) {
-        console.log('Erro Mandaê')
-      })
+    var myHeaders = new Headers();
+    myHeaders.append("authorization", "99aa0a3062e281c74879a367b4308534");
+    
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+    
+    fetch(`https://api.mandae.com.br/v3/trackings/${code}`, requestOptions)
+      .then(response => response.json())
+      .then(result => setDados(result))
+      .catch(error => console.log('error', error));
   }
 
   return (
